@@ -2,57 +2,91 @@
 <html lang="en">
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Taylor Cox | Project 1</title>
-  <link rel="stylesheet" type="text/css" href="/style.css">
+  <!-- Meta -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="Taylor Cox | Project 1" />
+  <meta name="author" content="Taylor Cox" />
+
+  <title>Truth or Dare</title>
+
+  <!-- Stylesheets -->
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="stylesheet" type="text/css" href="/style.css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
 
-  <!-- Scripts -->
+  <!-- Before Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
-
-  <script src="/main.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase.js"></script>
+  <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 
+<!-- Body -->
+
 <body>
-  <div>
-    <img src="ToDLogo.png" alt="Truth of Dare">
-  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col">
 
-  <section id="top">
+        <img src="ToDLogo.png" alt="Truth of Dare" />
 
-    <p id="game-content"> </p>
+        <!-- Truth or Dare section-->
+        <section id="game">
+          <!-- Actual Truth or Dare displayed -->
+          <p id="game-content"></p>
 
-    <div id="buttons">
-      <button class="btn btn-primary btn-lg" type="button" onclick="getTruth()">TRUTH</button>
-      <button class="btn btn-primary btn-lg" type="button" onclick="getDare()">DARE</button>
+          <!-- Truth or Dare Buttons -->
+          <div id="buttons">
+            <button class="btn btn-light btn-lg" type="button" id="truthBtn" onclick="getTruth()">
+              TRUTH
+            </button>
+            <button class="btn btn-light btn-lg" type="button" id="dareBtn" onclick="getDare()">
+              DARE
+            </button>
+          </div>
+        </section>
+      </div>
     </div>
 
-    <!--
-    <form id="truthForm" action="/addtruth" method="post">
-      <div class="form-group">
-        <input class="form-control" id="truthField" type="text" name="name"
-          placeholder="Enter a truth to be added..." />
-        <button type="submit" value="submit" class="btn btn-primary">Submit</button>
+    <div class="row">
+      <div class="col">
+
+        <div id="database">
+          <!-- Web response display -->
+          <section id="response"></section>
+
+          <!-- Database input form -->
+          <form id="userInputForm" action="/addInput" method="post">
+            <div id="radio" class="form-group">
+              <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-dark active">
+                  <input id="truthRadio" type="radio" name="options" checked />TRUTH</label>
+                <label class=" btn btn-dark">
+                  <input id="dareRadio" type="radio" name="options" />DARE</label>
+              </div>
+            </div>
+
+            <div id="input" class="form-check">
+              <input id="inputField" class="form-control" type="text" name="userInput" autocomplete="off"
+                placeholder=" Enter a truth or dare to be added..." />
+              <button class="btn btn-light" value="Add Input" type="submit">SUBMIT</button>
+            </div>
+          </form>
+        </div>
       </div>
-    </form>
+    </div>
+  </div>
 
-    <form id="dareForm" action="/adddare" method="post">
-      <div class="form-group">
-        <input class="form-control" id="dareField" type="text" name="name" placeholder="Enter a dare to be added..." />
-        <button type="submit" value="submit" class="btn btn-primary">Submit</button>
-      </div>
-    </form>
--->
-  </section>
-
-  <section id="content"></section>
-
-  <footer id="footer">
-    <p>Truth or Dare Database (Will be a way to add truths/dares using FireBase)</p>
+  <!-- Footer -->
+  <footer>
+    <button onclick="Popup()">
+      Contribute to the Truth or Dare Database
+    </button>
   </footer>
 
-  <!-- Scripts -->
+  <!-- After Scripts -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
@@ -61,13 +95,13 @@
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script>`
 
-  <!-- FIREBASE
-  <script src="/__/firebase/7.0.0/firebase-app.js"></script>
-  <script src="/__/firebase/7.0.0/firebase-analytics.js"></script>
-  <script src="/__/firebase/init.js"></script>
-  -->
+  <script src="/main.js"></script>
+  <script>
+    window.onload = init();
+  </script>
+
 </body>
 
 </html>

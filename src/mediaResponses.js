@@ -52,10 +52,9 @@ const loadFile = (request, response, filePath, type) => {
   });
 };
 
-module.exports.loadFile = loadFile;
-
 const getLogo = (request, response) => {
   loadFile(request, response, '../client/img/ToDLogo.png', 'image/png');
 };
 
 module.exports.getLogo = getLogo;
+module.exports.loadFile = loadFile;

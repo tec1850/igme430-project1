@@ -22,7 +22,17 @@
     "url": "https://github.com/tec1850/igme430-project1/issues"
   },
   "homepage": "https://github.com/tec1850/igme430-project1#readme",
-  "dependencies": {},
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "firebase": "^7.2.1",
+    "firebase-admin": "^8.6.0",
+    "firebase-functions": "^3.3.0",
+    "path": "^0.12.7",
+    "serve-favicon": "^2.5.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.6.2",
     "@babel/preset-env": "^7.6.2",
